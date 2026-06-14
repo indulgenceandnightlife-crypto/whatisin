@@ -1,0 +1,8 @@
+{
+  "name": "whatisin-store",
+  "version": "1.0.0",
+  "description": "IN Store — Indulgence & Nightlife",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  }
+}

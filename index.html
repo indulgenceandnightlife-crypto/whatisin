@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IN — Indulgence & Nightlife. Everything worth experiencing. Coming soon." />
+  <title>IN — Indulgence & Nightlife</title>
+  <style>
+    /* ── Fonts ── */
+    @font-face {
+      font-family: 'Ultra911';
+      src: url('assets/fonts/ultra911.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ultra911';
+      src: url('assets/fonts/ultra911bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Ultra911';
+      src: url('assets/fonts/ultra911ital.ttf') format('truetype');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── Tokens ── */
+    :root {
+      --black:     #000000;
+      --offblack:  #0d0d0d;
+      --red:       #8B0000;
+      --red-bright:#c0000a;
+      --white:     #FFFFFF;
+      --grey:      #999999;
+      --light:     #f0f0f0;
+    }
+
+    /* ── Base ── */
+    html, body {
+      height: 100%;
+      background: var(--black);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      overflow: hidden;
+      animation: fadeIn 1.6s ease forwards;
+    }
+
+    /* Background image layer */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/hero.jpg');
+      background-size: auto;
+      background-position: right center;
+      background-repeat: no-repeat;
+      opacity: 0.25;
+      z-index: 0;
+      -webkit-mask-image: linear-gradient(to right, transparent 30%, black 60%, black 100%);
+      mask-image: linear-gradient(to right, transparent 30%, black 60%, black 100%);
+    }
+
+    /* Red vignette - two glows moving randomly */
+    .glow-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .glow {
+      position: absolute;
+      width: 60%;
+      height: 60%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(139,0,0,0.45) 0%, transparent 70%);
+      filter: blur(50px);
+      transition: transform 4s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+      will-change: transform;
+    }
+
+    /* ── Content stack ── */
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      text-align: center;
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* ── Eyebrow ── */
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--red-bright);
+      margin-bottom: 1.8rem;
+    }
+
+    /* ── Monogram ── */
+    .monogram {
+      font-size: clamp(7rem, 22vw, 14rem);
+      font-family: 'Ultra911', sans-serif;
+      font-weight: 700;
+      line-height: 0.85;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      font-style: italic;
+      margin-bottom: 0.6rem;
+      /* Subtle red glow behind the IN */
+      text-shadow:
+        0 0 120px rgba(139,0,0,0.55),
+        0 0 40px  rgba(139,0,0,0.30);
+    }
+
+    /* ── Full name ── */
+    .brand-name {
+      font-family: 'Ultra911', sans-serif;
+      font-size: clamp(0.6rem, 1.8vw, 0.75rem);
+      font-weight: 400;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 2.8rem;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--red);
+      margin: 0 auto 2.8rem;
+    }
+
+    /* ── Tagline ── */
+    .tagline {
+      font-size: clamp(1rem, 3vw, 1.35rem);
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--light);
+      margin-bottom: 3.5rem;
+      max-width: 480px;
+    }
+
+    .tagline strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    /* ── Email form ── */
+    .form-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 1rem;
+    }
+
+    .email-form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 440px;
+      gap: 0.6rem;
+    }
+
+    .email-form input[type="email"],
+    .email-form input[type="text"] {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 2px;
+      outline: none;
+      padding: 0.95rem 1.2rem;
+      font-size: 0.9rem;
+      color: var(--white);
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+
+    .email-form input[type="email"]:focus,
+    .email-form input[type="text"]:focus {
+      border-color: var(--red-bright);
+    }
+
+    .email-form input::placeholder {
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.05em;
+    }
+
+    .email-form button {
+      background: var(--red);
+      border: none;
+      padding: 0.95rem 1.6rem;
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.25s ease;
+      border-radius: 2px;
+    }
+
+    .email-form button:hover {
+      background: var(--red-bright);
+    }
+
+    /* ── Success message ── */
+    .success-msg {
+      display: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: var(--red-bright);
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    /* ── Social links ── */
+    .social-row {
+      display: flex;
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .social-row a {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .social-row a:hover {
+      color: var(--white);
+    }
+
+    /* ── Footer ── */
+    .footer {
+      position: absolute;
+      bottom: 2rem;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+      z-index: 1;
+    }
+
+    /* ── Animation ── */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero { animation: none; }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 480px) {
+      .email-form {
+        flex-direction: column;
+      }
+      .email-form button {
+        padding: 0.9rem;
+      }
+      .social-row {
+        gap: 1.4rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+
+    <div class="glow-layer">
+      <div class="glow" id="glow1"></div>
+      <div class="glow" id="glow2"></div>
+    </div>
+
+    <div class="content">
+
+      <p class="eyebrow">Something is coming</p>
+
+      <h1 class="monogram">IN</h1>
+
+      <p class="brand-name">Indulgence &amp; Nightlife</p>
+
+      <div class="divider"></div>
+
+      <p class="tagline">
+        A curated world of everything <strong>worth experiencing.</strong><br>
+        Restaurants. Cars. Events. Style. Travel. Culture.<br>
+        If it's worth it — it's IN.
+      </p>
+
+      <p class="form-label">Be first to know</p>
+
+      <div id="mc_embed_signup">
+        <form action="https://indulgenceandnightlife.us22.list-manage.com/subscribe/post?u=414fa888cc543cee6113e0275&amp;id=14a342ff22&amp;f_id=0012c2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank">
+          <div class="email-form">
+            <input type="email" name="EMAIL" placeholder="Your email address" required aria-label="Email address" />
+            <input type="text" name="FNAME" placeholder="Your name" aria-label="Your name" />
+            <div aria-hidden="true" style="position: absolute; left: -5000px;">
+              <input type="text" name="b_414fa888cc543cee6113e0275_14a342ff22" tabindex="-1" value="">
+            </div>
+            <button type="submit" name="subscribe">I want IN</button>
+          </div>
+        </form>
+      </div>
+
+      <p class="success-msg" id="success">You're IN. We'll be in touch.</p>
+
+      <nav class="social-row" aria-label="Social media">
+        <a href="https://instagram.com/indulgencenightlife" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com/@indulgencenightlife" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://youtube.com/@IndulgenceNightlife" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.facebook.com/profile.php?id=61590386384910" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/joinINlife" target="_blank" rel="noopener">X</a>
+      </nav>
+
+    </div>
+
+    <p class="footer">&copy; 2026 Indulgence &amp; Nightlife</p>
+
+  </section>
+
+  <script>
+    // ── Random glow movement ──
+    function moveGlow(el) {
+      const x = Math.random() * 80 - 20;
+      const y = Math.random() * 80 - 20;
+      el.style.transform = `translate(${x}%, ${y}%)`;
+      const delay = 3000 + Math.random() * 3000;
+      setTimeout(() => moveGlow(el), delay);
+    }
+
+    const glow1 = document.getElementById('glow1');
+    const glow2 = document.getElementById('glow2');
+
+    // Start glows on opposite sides
+    glow1.style.transform = 'translate(-20%, -20%)';
+    glow2.style.transform = 'translate(60%, 60%)';
+
+    // Begin random movement with offset timing
+    setTimeout(() => moveGlow(glow1), 500);
+    setTimeout(() => moveGlow(glow2), 2000);
+
+    // ── Email form ──
+    document.getElementById('mc-embedded-subscribe-form').addEventListener('submit', function() {
+      setTimeout(function() {
+        document.getElementById('mc_embed_signup').style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
