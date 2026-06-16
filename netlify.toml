@@ -3,6 +3,7 @@
 
 [build.environment]
   SECRETS_SCAN_OMIT_KEYS = "MAILCHIMP_AUDIENCE_ID"
+  SECRETS_SCAN_OMIT_PATHS = ".env"
 
 [functions]
   node_bundler = "esbuild"
