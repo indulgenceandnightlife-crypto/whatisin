@@ -309,9 +309,114 @@
         justify-content: center;
       }
     }
+
+    /* ── Menu toggle (hamburger) ── */
+    .menu-toggle {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 200;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .menu-toggle:focus-visible {
+      outline: 2px solid var(--red-bright);
+      outline-offset: 4px;
+    }
+
+    .menu-toggle .bar {
+      width: 26px;
+      height: 2px;
+      background: var(--white);
+      transition: transform 0.35s cubic-bezier(0.45, 0.05, 0.55, 0.95), opacity 0.25s ease;
+    }
+
+    .menu-toggle[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* ── Site menu overlay ── */
+    .site-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 150;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--black);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.45s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    }
+
+    .site-menu::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, rgba(139,0,0,0.35) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .site-menu.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .site-menu ul {
+      position: relative;
+      list-style: none;
+      text-align: center;
+    }
+
+    .site-menu li { margin: 1.6rem 0; }
+
+    .site-menu a {
+      font-family: 'Ultra911', sans-serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 6vw, 3rem);
+      letter-spacing: -0.01em;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .site-menu a:hover,
+    .site-menu a:focus-visible { color: var(--red-bright); }
+
+    body.menu-open { overflow: hidden; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .menu-toggle .bar, .site-menu { transition: none; }
+    }
   </style>
 </head>
 <body>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="siteMenu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <nav class="site-menu" id="siteMenu" aria-label="Site navigation">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/store.html">Shop IN</a></li>
+      <li><a href="https://discord.gg/VKkeJsBy" target="_blank" rel="noopener">Discord</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </nav>
 
   <section class="hero">
 
@@ -369,6 +474,27 @@
   </section>
 
   <script>
+    // ── Hamburger menu ──
+    const menuToggle = document.getElementById('menuToggle');
+    const siteMenu = document.getElementById('siteMenu');
+
+    function setMenu(open) {
+      siteMenu.classList.toggle('is-open', open);
+      menuToggle.setAttribute('aria-expanded', open);
+      menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      document.body.classList.toggle('menu-open', open);
+    }
+
+    menuToggle.addEventListener('click', () => setMenu(!siteMenu.classList.contains('is-open')));
+
+    siteMenu.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') setMenu(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && siteMenu.classList.contains('is-open')) setMenu(false);
+    });
+
     // ── Random glow movement ──
     function moveGlow(el) {
       const x = Math.random() * 80 - 20;
