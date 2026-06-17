@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy Policy and Terms of Service — Indulgence & Nightlife" />
+  <title>Legal — IN | Indulgence & Nightlife</title>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x7olw32qfe");
+  </script>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <style>
+    @font-face {
+      font-family: 'Ultra911';
+      src: url('assets/fonts/ultra911bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #000000;
+      --offblack: #0d0d0d;
+      --border: #1a1a1a;
+      --red: #8B0000;
+      --red-bright: #c0000a;
+      --white: #FFFFFF;
+      --grey: #999999;
+      --light: #cccccc;
+    }
+    html, body {
+      background: var(--black);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* Nav */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 3rem;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: 'Ultra911', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-style: italic;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    /* Content */
+    .legal-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    /* Tab navigation */
+    .tab-nav {
+      display: flex;
+      gap: 0;
+      margin-bottom: 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 1rem 2rem;
+      color: var(--grey);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      color: var(--white);
+      border-bottom-color: var(--red);
+    }
+    .tab-btn:hover { color: var(--white); }
+
+    /* Tab content */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Typography */
+    .legal-title {
+      font-family: 'Ultra911', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+    .legal-subtitle {
+      font-size: 0.8rem;
+      color: var(--grey);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 2.5rem 0 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      color: var(--red-bright);
+    }
+    p {
+      color: var(--light);
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+    }
+    ul {
+      color: var(--light);
+      font-size: 0.92rem;
+      margin: 0.5rem 0 1rem 1.5rem;
+    }
+    ul li { margin-bottom: 0.4rem; }
+    a { color: var(--red-bright); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    strong { color: var(--white); }
+
+    /* Cookie banner */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #111111;
+      border-top: 1px solid var(--border);
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      z-index: 999;
+      flex-wrap: wrap;
+    }
+    .cookie-banner p {
+      margin: 0;
+      font-size: 0.8rem;
+      color: var(--grey);
+      flex: 1;
+    }
+    .cookie-banner a { color: var(--red-bright); }
+    .cookie-btns { display: flex; gap: 1rem; }
+    .cookie-accept {
+      background: var(--red);
+      border: none;
+      padding: 0.6rem 1.5rem;
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+    .cookie-accept:hover { background: var(--red-bright); }
+    .cookie-decline {
+      background: none;
+      border: 1px solid var(--border);
+      padding: 0.6rem 1.5rem;
+      color: var(--grey);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .cookie-decline:hover { color: var(--white); border-color: var(--grey); }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .cookie-banner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">IN</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/store.html">Store</a></li>
+      <li><a href="/legal.html">Legal</a></li>
+    </ul>
+  </nav>
+
+  <main class="legal-container">
+
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab('privacy', this)">Privacy Policy</button>
+      <button class="tab-btn" onclick="switchTab('terms', this)">Terms of Service</button>
+      <button class="tab-btn" onclick="switchTab('cookies', this)">Cookie Policy</button>
+    </div>
+
+    <!-- ── PRIVACY POLICY ── -->
+    <div class="tab-content active" id="privacy">
+      <h1 class="legal-title">Privacy Policy</h1>
+      <p class="legal-subtitle">Last updated: June 2026 &nbsp;|&nbsp; Indulgence & Nightlife</p>
+
+      <p>Indulgence & Nightlife ("IN", "we", "us", or "our") is committed to protecting your personal information. This Privacy Policy explains how we collect, use, store and share your data when you use our website at <strong>indulgenceandnightlife.com</strong> and related services.</p>
+
+      <h2>1. Who We Are</h2>
+      <p>Indulgence & Nightlife is operated by Engineuity Group Ltd, based in Auckland, New Zealand. For privacy enquiries, contact us at: <a href="mailto:indulgenceandnightlife@gmail.com">indulgenceandnightlife@gmail.com</a></p>
+
+      <h2>2. Information We Collect</h2>
+      <p>We collect the following types of information:</p>
+      <ul>
+        <li><strong>Email address and name</strong> — when you sign up to our mailing list</li>
+        <li><strong>Payment information</strong> — processed securely by Stripe; we never store your card details</li>
+        <li><strong>Shipping address</strong> — when you place an order, collected by Stripe and passed to Printful for fulfilment</li>
+        <li><strong>Usage data</strong> — pages visited, time spent, clicks and interactions via Microsoft Clarity and Google Analytics</li>
+        <li><strong>Device information</strong> — browser type, operating system, IP address</li>
+        <li><strong>Community content</strong> — any content you submit for inclusion on the IN platform</li>
+      </ul>
+
+      <h2>3. How We Use Your Information</h2>
+      <ul>
+        <li>To fulfil your orders and process payments</li>
+        <li>To send you updates, newsletters and promotional content (with your consent)</li>
+        <li>To improve our website and understand how visitors use it</li>
+        <li>To manage your membership and community participation</li>
+        <li>To comply with legal obligations</li>
+        <li>To prevent fraud and ensure platform security</li>
+      </ul>
+
+      <h2>4. Legal Basis for Processing (GDPR)</h2>
+      <p>If you are located in the European Economic Area, we process your personal data under the following legal bases:</p>
+      <ul>
+        <li><strong>Contract</strong> — to fulfil orders you place with us</li>
+        <li><strong>Consent</strong> — for marketing emails and non-essential cookies</li>
+        <li><strong>Legitimate interests</strong> — for website analytics and fraud prevention</li>
+        <li><strong>Legal obligation</strong> — where required by law</li>
+      </ul>
+
+      <h2>5. Third Parties We Share Data With</h2>
+      <ul>
+        <li><strong>Stripe</strong> — payment processing (stripe.com/privacy)</li>
+        <li><strong>Printful</strong> — order fulfilment and shipping (printful.com/privacy-policy)</li>
+        <li><strong>Mailchimp (Intuit)</strong> — email marketing (mailchimp.com/legal/privacy)</li>
+        <li><strong>Microsoft Clarity</strong> — website behaviour analytics (privacy.microsoft.com)</li>
+        <li><strong>Google Analytics</strong> — website traffic analytics (policies.google.com/privacy)</li>
+      </ul>
+      <p>We do not sell your personal data to any third party.</p>
+
+      <h2>6. Data Retention</h2>
+      <p>We retain your personal data for as long as necessary to provide our services and comply with legal obligations. Email marketing data is retained until you unsubscribe. Order data is retained for 7 years for tax and accounting purposes.</p>
+
+      <h2>7. Your Rights</h2>
+      <p>Depending on your location, you may have the following rights:</p>
+      <ul>
+        <li>Right to access the personal data we hold about you</li>
+        <li>Right to correct inaccurate data</li>
+        <li>Right to erasure ("right to be forgotten")</li>
+        <li>Right to restrict or object to processing</li>
+        <li>Right to data portability</li>
+        <li>Right to withdraw consent at any time</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at <a href="mailto:indulgenceandnightlife@gmail.com">indulgenceandnightlife@gmail.com</a>. We will respond within 30 days.</p>
+
+      <h2>8. New Zealand Privacy Act 2020</h2>
+      <p>We comply with the New Zealand Privacy Act 2020. You have the right to access and correct personal information we hold about you. To make a request, contact us at the email above. If you are unsatisfied with our response, you may contact the Office of the Privacy Commissioner at <a href="https://www.privacy.org.nz" target="_blank" rel="noopener">privacy.org.nz</a>.</p>
+
+      <h2>9. International Data Transfers</h2>
+      <p>Your data may be transferred to and processed in countries outside New Zealand, including the United States, where our service providers are based. We ensure appropriate safeguards are in place in accordance with applicable privacy laws.</p>
+
+      <h2>10. Security</h2>
+      <p>We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, loss or destruction. All payments are processed over encrypted connections (HTTPS/TLS).</p>
+
+      <h2>11. Children's Privacy</h2>
+      <p>Our services are not directed at children under the age of 16. We do not knowingly collect personal data from children. If you believe we have collected data from a child, please contact us immediately.</p>
+
+      <h2>12. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by email or by posting a notice on our website. The date at the top of this page indicates when it was last updated.</p>
+
+      <h2>13. Contact Us</h2>
+      <p>For any privacy-related questions or concerns: <a href="mailto:indulgenceandnightlife@gmail.com">indulgenceandnightlife@gmail.com</a></p>
+    </div>
+
+    <!-- ── TERMS OF SERVICE ── -->
+    <div class="tab-content" id="terms">
+      <h1 class="legal-title">Terms of Service</h1>
+      <p class="legal-subtitle">Last updated: June 2026 &nbsp;|&nbsp; Indulgence & Nightlife</p>
+
+      <p>Welcome to Indulgence & Nightlife ("IN"). By accessing or using our website at <strong>indulgenceandnightlife.com</strong> or any of our services, you agree to be bound by these Terms of Service. Please read them carefully.</p>
+
+      <h2>1. About Us</h2>
+      <p>Indulgence & Nightlife is operated by Engineuity Group Ltd, Auckland, New Zealand. Contact: <a href="mailto:indulgenceandnightlife@gmail.com">indulgenceandnightlife@gmail.com</a></p>
+
+      <h2>2. Acceptance of Terms</h2>
+      <p>By using our website, purchasing products, or becoming a member, you confirm that you are at least 18 years of age and agree to these Terms of Service and our Privacy Policy. If you do not agree, please do not use our services.</p>
+
+      <h2>3. Membership</h2>
+      <p>IN offers a membership programme with the following conditions:</p>
+      <ul>
+        <li>Membership is available to individuals aged 18 and over</li>
+        <li>Each person may hold only one membership account</li>
+        <li>Membership fees are charged monthly and are non-refundable</li>
+        <li>We reserve the right to suspend or terminate memberships that violate these terms</li>
+        <li>Membership tiers (INsider, INtern, INfluencer) are earned through engagement and cannot be purchased</li>
+      </ul>
+
+      <h2>4. Community Content & Submissions</h2>
+      <p>Members may submit content ("INs") for consideration on the platform. By submitting content, you:</p>
+      <ul>
+        <li>Confirm you own or have the right to share the content</li>
+        <li>Grant IN a non-exclusive, royalty-free licence to use, display and distribute the content on our platforms</li>
+        <li>Confirm the content does not infringe any third-party intellectual property rights</li>
+        <li>Confirm the content does not violate any laws in New Zealand or the country of origin</li>
+        <li>Accept that IN has sole editorial discretion over what is published</li>
+      </ul>
+      <p>We reserve the right to reject, remove or edit any submitted content without notice.</p>
+
+      <h2>5. Prohibited Content</h2>
+      <p>The following content is strictly prohibited on the IN platform:</p>
+      <ul>
+        <li>Content that infringes copyright, trademark or other intellectual property rights</li>
+        <li>Hate speech, discrimination or content that promotes violence</li>
+        <li>Sexually explicit or adult content</li>
+        <li>Misinformation or deliberately false content</li>
+        <li>Content that promotes illegal activities</li>
+        <li>Spam, unsolicited advertising or pyramid schemes</li>
+        <li>Content involving minors in inappropriate contexts</li>
+        <li>AI-generated content presented as authentic human experience</li>
+      </ul>
+
+      <h2>6. Products & Orders</h2>
+      <ul>
+        <li>All prices are displayed in New Zealand Dollars (NZD) unless otherwise stated</li>
+        <li>Orders are fulfilled by Printful on our behalf. Shipping times and costs vary by location.</li>
+        <li>We accept returns for defective or incorrect items within 30 days of receipt</li>
+        <li>Custom printed items cannot be returned unless defective</li>
+        <li>We reserve the right to cancel orders at our discretion with a full refund</li>
+      </ul>
+
+      <h2>7. Intellectual Property</h2>
+      <p>All content on the IN website — including the IN logo, brand assets, design, text and code — is owned by Engineuity Group Ltd and protected by copyright. You may not reproduce, distribute or create derivative works without our written permission.</p>
+
+      <h2>8. Disclaimer of Warranties</h2>
+      <p>Our services are provided "as is" without warranties of any kind. We do not guarantee that the platform will be uninterrupted, error-free or free of harmful components. Content recommendations on the platform represent the views of community members and not of IN or Engineuity Group Ltd.</p>
+
+      <h2>9. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by New Zealand law, Engineuity Group Ltd shall not be liable for any indirect, incidental, special or consequential damages arising from your use of our services. Our total liability to you shall not exceed the amount you paid to us in the 12 months preceding the claim.</p>
+
+      <h2>10. Governing Law</h2>
+      <p>These Terms are governed by the laws of New Zealand. Any disputes shall be subject to the exclusive jurisdiction of the New Zealand courts.</p>
+
+      <h2>11. Changes to Terms</h2>
+      <p>We may update these Terms at any time. Continued use of our services after changes are posted constitutes acceptance of the new Terms. We will notify members of material changes by email.</p>
+
+      <h2>12. Contact</h2>
+      <p>For any questions about these Terms: <a href="mailto:indulgenceandnightlife@gmail.com">indulgenceandnightlife@gmail.com</a></p>
+    </div>
+
+    <!-- ── COOKIE POLICY ── -->
+    <div class="tab-content" id="cookies">
+      <h1 class="legal-title">Cookie Policy</h1>
+      <p class="legal-subtitle">Last updated: June 2026 &nbsp;|&nbsp; Indulgence & Nightlife</p>
+
+      <p>This Cookie Policy explains how Indulgence & Nightlife uses cookies and similar tracking technologies on our website.</p>
+
+      <h2>1. What Are Cookies</h2>
+      <p>Cookies are small text files stored on your device when you visit a website. They help websites remember your preferences and understand how you use the site.</p>
+
+      <h2>2. Cookies We Use</h2>
+
+      <h2>Essential Cookies</h2>
+      <p>These cookies are necessary for the website to function and cannot be disabled:</p>
+      <ul>
+        <li><strong>Session cookies</strong> — maintain your shopping cart and session state</li>
+        <li><strong>Security cookies</strong> — protect against cross-site request forgery</li>
+      </ul>
+
+      <h2>Analytics Cookies</h2>
+      <p>These cookies help us understand how visitors use our website (with your consent):</p>
+      <ul>
+        <li><strong>Microsoft Clarity</strong> — records session replays and heatmaps to improve user experience</li>
+        <li><strong>Google Analytics</strong> — tracks page views, traffic sources and user behaviour</li>
+      </ul>
+
+      <h2>Payment Cookies</h2>
+      <ul>
+        <li><strong>Stripe</strong> — fraud prevention and payment processing</li>
+      </ul>
+
+      <h2>3. Managing Cookies</h2>
+      <p>You can control cookies through your browser settings. Most browsers allow you to refuse cookies or delete existing ones. Note that disabling cookies may affect the functionality of our website.</p>
+      <p>To opt out of Microsoft Clarity tracking, visit: <a href="https://clarity.microsoft.com/optout" target="_blank" rel="noopener">clarity.microsoft.com/optout</a></p>
+      <p>To opt out of Google Analytics, install: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a></p>
+
+      <h2>4. Contact</h2>
+      <p>For cookie-related questions: <a href="mailto:indulgenceandnightlife@gmail.com">indulgenceandnightlife@gmail.com</a></p>
+    </div>
+
+  </main>
+
+  <footer>&copy; 2026 Indulgence &amp; Nightlife</footer>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookieBanner">
+    <p>We use cookies to improve your experience and analyse site traffic. See our <a href="/legal.html#cookies" onclick="switchTab('cookies', document.querySelectorAll('.tab-btn')[2])">Cookie Policy</a> for details.</p>
+    <div class="cookie-btns">
+      <button class="cookie-decline" onclick="declineCookies()">Decline</button>
+      <button class="cookie-accept" onclick="acceptCookies()">Accept All</button>
+    </div>
+  </div>
+
+  <script>
+    // Tab switching
+    function switchTab(id, btn) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+
+    // Cookie consent
+    function acceptCookies() {
+      localStorage.setItem('cookieConsent', 'accepted');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+
+    function declineCookies() {
+      localStorage.setItem('cookieConsent', 'declined');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+
+    // Check if already consented
+    if (localStorage.getItem('cookieConsent')) {
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
